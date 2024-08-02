@@ -1,0 +1,13 @@
+RewriteEngine On
+
+#accept loading of actual files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#send everything else to the index page
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+
+RewriteRule ^(home)$ index.php [NC,L]
+RewriteRule ^(auth-login)$ signin.php [NC,L]
+RewriteRule ^(auth-register)$ signup.php [NC,L]
+RewriteRule ^(logout)$ logout.php [NC,L]
